@@ -1,6 +1,18 @@
 parameters:
     app.greeter.class: App\Greeter
+    app.common_names.class: App\Collection\CommonNames
 
 services:
     app.greeter:
         class: %app.greeter.class%
+    app.common_names:
+        class: %app.common_names.class%
+        arguments:
+            - [ John, Mary, Simon ]
+        calls:
+            - [add, ["@=service('request_stack').getCurrentRequest().request.get('name')"]]
+    app.form.greeter:
+        class: AppBundle\Form\GreeterType
+        arguments: [ @app.common_names ]
+        tags:
+            - { name: form.type }
