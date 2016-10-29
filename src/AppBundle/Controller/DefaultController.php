@@ -21,7 +21,7 @@ class DefaultController extends Controller
 
         if($form->isValid())
         {
-            $greeter = new Greeter();
+            $greeter = $this->get('app.greeter');
             $greeting = $greeter->greet($form->getData()['name']);
 
             $this->addFlash('success', $greeting);

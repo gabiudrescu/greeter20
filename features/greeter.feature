@@ -8,4 +8,5 @@ Feature: Greeter web aplication
     Given I am on the homepage
     When I fill in "Name" with "Forever Alone"
     And I press "Submit"
-    Then I should see "Hello, Forever Alone"
+    Then I should have "200" HTTP Response
+    And I should see "Hello, Forever Alone"

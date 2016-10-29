@@ -1,0 +1,6 @@
+parameters:
+    app.greeter.class: App\Greeter
+
+services:
+    app.greeter:
+        class: %app.greeter.class%

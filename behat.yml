@@ -3,7 +3,6 @@ default:
         default:
             contexts:
                 - FeatureContext
-                - Behat\MinkExtension\Context\MinkContext
 
     extensions:
         Behat\Symfony2Extension: ~
