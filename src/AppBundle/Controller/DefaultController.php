@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use App\Greeter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +21,8 @@ class DefaultController extends Controller
 
         if($form->isValid())
         {
-            $greeting = sprintf('Hello, %s!', $form->get('name')->getData());
+            $greeter = new Greeter();
+            $greeting = $greeter->greet($form->getData()['name']);
 
             $this->addFlash('success', $greeting);
         }
